@@ -54,7 +54,7 @@ export default function ImageSwitcher({
           position: "absolute",
           inset: 0,
           opacity: transitioning ? 0 : 1,
-          transition: `opacity ${FADE_MS}ms ease-in-out`,
+          transition: transitioning ? `opacity ${FADE_MS}ms ease-in-out` : "none",
         }}
       >
         <Image
@@ -72,7 +72,7 @@ export default function ImageSwitcher({
             position: "absolute",
             inset: 0,
             opacity: transitioning ? 1 : 0,
-            transition: `opacity ${FADE_MS}ms ease-in-out`,
+            transition: transitioning ? `opacity ${FADE_MS}ms ease-in-out` : "none",
           }}
         >
           <Image
