@@ -6,7 +6,8 @@
 html,
 body {
   min-height: 100vh;
-  max-width: 870px;
+  max-width: 806px;
+  padding: 0 10px;
   margin: 0 auto;
   overflow-x: hidden;
   font-family: var(--font-roboto), system-ui, sans-serif;
@@ -21,7 +22,7 @@ body {
 
 main {
   flex: 1;
-  padding: 0 38px;
+  max-width: 786px;
 }
 
 a {
@@ -32,10 +33,9 @@ a {
 header {
   display: flex;
   flex-direction: column;
-  padding: 0 38px;
-  width: 100%;
-  height: 213px;
-  gap: 1.5rem;
+  max-width: 786px;
+  height: 147px;
+  gap: 0.8rem;
   justify-content: center;
 }
 
@@ -43,7 +43,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 92px;
+  height: 50px;
 }
 
 h1 {
