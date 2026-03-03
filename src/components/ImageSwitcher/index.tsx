@@ -7,19 +7,32 @@ const FADE_MS = 500;
 const INTERVAL_MS = 5000;
 
 type ImageSwitcherProps = {
-  images: string[];
+  /** Om utelämnas hämtas bilder från /api/gallery (env används endast där) */
+  images?: string[];
   alt?: string;
   /** Aspect ratio, default A4 (842×596) */
   aspectRatio?: string;
 };
 
 export default function ImageSwitcher({
-  images,
+  images: imagesProp = [],
   alt = "",
   aspectRatio = "842/596",
 }: ImageSwitcherProps) {
+  const [images, setImages] = useState<string[]>(imagesProp);
   const [index, setIndex] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
+
+  useEffect(() => {
+    if (imagesProp.length > 0) {
+      setImages(imagesProp);
+      return;
+    }
+    fetch("/api/gallery")
+      .then((res) => res.json())
+      .then((data: { images?: string[] }) => setImages(data.images ?? []))
+      .catch(() => setImages([]));
+  }, [imagesProp.length]);
 
   useEffect(() => {
     if (images.length <= 1) return;
