@@ -9,14 +9,14 @@ const INTERVAL_MS = 5000;
 type ImageSwitcherProps = {
   images: string[];
   alt?: string;
-  /** Aspect ratio som "16/9" eller "4/3" */
+  /** Aspect ratio, default A4 (842×596) */
   aspectRatio?: string;
 };
 
 export default function ImageSwitcher({
   images,
   alt = "",
-  aspectRatio = "16/9",
+  aspectRatio = "842/596",
 }: ImageSwitcherProps) {
   const [index, setIndex] = useState(0);
   const [transitioning, setTransitioning] = useState(false);
